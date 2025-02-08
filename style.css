@@ -1,10 +1,11 @@
 :root {
     --color-primary: #4B69FD;
     --color-secondary: #FFF9EB;
-    --color-tertiary: #C4C4C4;
+    --color-tertiary: #c4c4c4;
     --color-button: #fe652b;
     --color-button-hover: #e55720;
-    --color-text: #444444;
+    --color-button-hover-2: #ff9b10;
+    --color-text: #100101;
     --color-white: #FFFFFF;
 }
 
@@ -108,7 +109,7 @@ body {
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
-    font-size: 16px;
+    font-size: 24px;
     border: 2px solid #000;
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -122,7 +123,7 @@ button {
 }
 
 .button-add:hover {
-    background-color: #a1a1a1;
+    background-color: var(--color-button-hover-2);
 }
 
 /* Listas */
@@ -150,7 +151,7 @@ ul {
     padding: 10px 40px;
     color: var(--color-white);
     background-color: var(--color-button);
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .button-draw img {
