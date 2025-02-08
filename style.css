@@ -137,8 +137,14 @@ ul {
 
 .result-list {
     margin-top: 15px;
-    color: #05DF05;
+    color: var(--color-primary);
+    border-color: #fe652b;
+    border-style: double;
+    border-radius: 10px;
+    border-width: 10px;
+    padding: 20px;
     font-size: 22px;
+    font-family: comic 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
     text-align: center;
 }
@@ -160,4 +166,9 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+#borrar.button-draw{
+    color: black;
+    background-color: #f6ea12;
 }
