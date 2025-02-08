@@ -1,5 +1,6 @@
 let listaAmigos = [];
 let listaFront = document.getElementById("listaAmigos");
+let resultado = document.getElementById("resultado");
 //validaciónes
 const inputAmigo = document.getElementById("amigo");
 
@@ -42,15 +43,22 @@ function mostrarAmigo() {
   });
 }
 
-// Crea una función que recorra el array amigos y agregue cada nombre como un elemento <li> dentro de una lista HTML.
-// Usa innerHTML para limpiar la lista antes de agregar nuevos elementos.
-// Tareas específicas:
-// Obtener el elemento de la lista: Utilizar document.getElementById() o document.querySelector()
-// para seleccionar la lista donde se mostrarán los amigos.
+function sortearAmigo(){
+    if (listaAmigos.length === 0){
+        alert("No hay amigos para sortear");
+    }else{
+        let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+        resultado.textContent = ganador;
+    };
+};
 
-// Limpiar la lista existente: Establecer lista.innerHTML = "" para asegurarse de que no haya duplicados al actualizar.
-
-// Iterar sobre el arreglo: Usa un bucle for para recorrer el arreglo amigos y crear elementos de lista (<li>)
-// para cada título.
-
-// Agregar elementos a la lista: Para cada amigo, crear un nuevo elemento de lista.
+function borrarListado(){
+    if(listaAmigos.length === 0){
+        alert("No hay amigos ingresados");
+    }else{
+        if(confirm("¿Seguro que desea borrar el listado?")){
+            listaFront.innerHTML = "";
+            listaAmigos = [];
+        };
+    };
+}
