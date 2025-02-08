@@ -49,5 +49,16 @@ function sortearAmigo(){
     }else{
         let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
         resultado.textContent = ganador;
-    }
+    };
+};
+
+function borrarListado(){
+    if(listaAmigos.length === 0){
+        alert("No hay amigos ingresados");
+    }else{
+        if(confirm("¿Seguro que desea borrar el listado?")){
+            listaFront.innerHTML = "";
+            listaAmigos = [];
+        };
+    };
 }
