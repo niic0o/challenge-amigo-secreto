@@ -59,6 +59,7 @@ function borrarListado(){
         if(confirm("¿Seguro que desea borrar el listado?")){
             listaFront.innerHTML = "";
             listaAmigos = [];
+            resultado.innerHTML = '';
         };
     };
 }
