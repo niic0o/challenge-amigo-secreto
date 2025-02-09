@@ -177,3 +177,21 @@ ul {
     background-color: #6d1991;
     color: var(--color-white);
 }
+
+#borrar.button-draw:disabled{
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}
+
+#sortear.button-draw:disabled {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed; /* Cambia el cursor para indicar que no se puede hacer clic */
+}
+
+#añadir.button-add:disabled {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed; /* Cambia el cursor para indicar que no se puede hacer clic */
+}

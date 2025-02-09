@@ -51,21 +51,33 @@ function sortearAmigo() {
     alert("No hay amigos para sortear");
   } else {
     resultado.style.color = "blue";
+    document.getElementById("añadir").setAttribute("disabled", "true");
+    document.getElementById("sortear").setAttribute("disabled", "true");
+    document.getElementById("borrar").setAttribute("disabled", "true");
     iniciarSorteo();
   }
 }
 
+/**
+ * @function obtenerGanador() : String
+ * @returns Genera un indice aleatorio y devuelve un ganador en esa posicion
+ */
+function obtenerGanador() {
+  return listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+}
+
 function iniciarSorteo() {
   sorteando = setInterval(() => {
-    let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
-    resultado.textContent = `El ganador es: ${ganador}`;
+    resultado.textContent = `El ganador es: ${obtenerGanador()}`;
   }, timeIntervalo);
 
   setTimeout(() => {
     clearInterval(sorteando);
-    let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
     resultado.style.color = "rgb(255, 11, 31)";
-    resultado.textContent = `El ganador es: ${ganador}`;
+    resultado.textContent = `El ganador es: ${obtenerGanador()}`;
+    document.getElementById("sortear").removeAttribute("disabled");
+    document.getElementById("borrar").removeAttribute("disabled");
+    document.getElementById("añadir").removeAttribute("disabled");
   }, timeSorteo);
 }
 
