@@ -1,6 +1,9 @@
 let listaAmigos = [];
 let listaFront = document.getElementById("listaAmigos");
 let resultado = document.getElementById("resultado");
+let timeSorteo = 4000;
+let timeIntervalo = 100;
+let sorteando;
 //validaciónes
 const inputAmigo = document.getElementById("amigo");
 
@@ -43,23 +46,37 @@ function mostrarAmigo() {
   });
 }
 
-function sortearAmigo(){
-    if (listaAmigos.length === 0){
-        alert("No hay amigos para sortear");
-    }else{
-        let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
-        resultado.textContent = ganador;
-    };
-};
+function sortearAmigo() {
+  if (listaAmigos.length === 0) {
+    alert("No hay amigos para sortear");
+  } else {
+    resultado.style.color = "blue";
+    iniciarSorteo();
+  }
+}
 
-function borrarListado(){
-    if(listaAmigos.length === 0){
-        alert("No hay amigos ingresados");
-    }else{
-        if(confirm("¿Seguro que desea borrar el listado?")){
-            listaFront.innerHTML = "";
-            listaAmigos = [];
-            resultado.innerHTML = '';
-        };
-    };
+function iniciarSorteo() {
+  sorteando = setInterval(() => {
+    let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    resultado.textContent = `El ganador es: ${ganador}`;
+  }, timeIntervalo);
+
+  setTimeout(() => {
+    clearInterval(sorteando);
+    let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+    resultado.style.color = "rgb(255, 11, 31)";
+    resultado.textContent = `El ganador es: ${ganador}`;
+  }, timeSorteo);
+}
+
+function borrarListado() {
+  if (listaAmigos.length === 0) {
+    alert("No hay amigos ingresados");
+  } else {
+    if (confirm("¿Seguro que desea borrar el listado?")) {
+      listaFront.innerHTML = "";
+      listaAmigos = [];
+      resultado.innerHTML = "";
+    }
+  }
 }
