@@ -195,3 +195,31 @@ ul {
     color: white;
     cursor: not-allowed; /* Cambia el cursor para indicar que no se puede hacer clic */
 }
+
+/* Accion de lanzar papelitos al anunciar ganador */
+#papelitosContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que no interfiera con los clics */
+    overflow: hidden; /* Para ocultar papelitos que se salgan del contenedor */
+}
+
+.papelito {
+    position: absolute;
+    width: 10px; /* Ancho del papelito */
+    height: 10px; /* Alto del papelito */
+    background-color: red; /* Color del papelito */
+    opacity: 0.8;
+    border-radius: 50%; /* Forma redonda */
+    animation: caer 2s forwards; /* Animación de caída */
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(100vh); /* Caer hasta el fondo de la pantalla */
+        opacity: 0; /* Desvanecerse al caer */
+    }
+}
