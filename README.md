@@ -13,8 +13,8 @@
 2. **Añadir**: Comienza a añadir el nombre de tus amigos y/o amigas.
 3. **Sortear**: Realiza el sorteo clickeando en sortear amigos.
 4. **Observar**: Visualiza en pantalla la legitimidad del sorteo con botones bloqueados.
-4. **Ver Ganador**: El ganador será mostrado en la pantalla de manera explícita.
-5. **Borrar Listado**: Vuelve a añadir nuevos amigos para sortearlos, o realiza otro sorteo sobre el mismo listado
+5. **Ver Ganador**: El ganador será mostrado en la pantalla de manera explícita.
+6. **Borrar Listado**: Vuelve a añadir nuevos amigos para sortearlos, o realiza otro sorteo sobre el mismo listado
 
 ### Créditos
 ---------
