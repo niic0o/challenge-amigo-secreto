@@ -1,6 +1,9 @@
 let listaAmigos = [];
 let listaFront = document.getElementById("listaAmigos");
 let resultado = document.getElementById("resultado");
+let timeSorteo = 4000;
+let timeIntervalo = 100;
+let sorteando;
 //validaciónes
 const inputAmigo = document.getElementById("amigo");
 
@@ -43,23 +46,49 @@ function mostrarAmigo() {
   });
 }
 
-function sortearAmigo(){
-    if (listaAmigos.length === 0){
-        alert("No hay amigos para sortear");
-    }else{
-        let ganador = listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
-        resultado.textContent = ganador;
-    };
-};
+function sortearAmigo() {
+  if (listaAmigos.length === 0) {
+    alert("No hay amigos para sortear");
+  } else {
+    resultado.style.color = "blue";
+    document.getElementById("añadir").setAttribute("disabled", "true");
+    document.getElementById("sortear").setAttribute("disabled", "true");
+    document.getElementById("borrar").setAttribute("disabled", "true");
+    iniciarSorteo();
+  }
+}
 
-function borrarListado(){
-    if(listaAmigos.length === 0){
-        alert("No hay amigos ingresados");
-    }else{
-        if(confirm("¿Seguro que desea borrar el listado?")){
-            listaFront.innerHTML = "";
-            listaAmigos = [];
-            resultado.innerHTML = '';
-        };
-    };
+/**
+ * @function obtenerGanador() : String
+ * @returns Genera un indice aleatorio y devuelve un ganador en esa posicion
+ */
+function obtenerGanador() {
+  return listaAmigos[Math.floor(Math.random() * listaAmigos.length)];
+}
+
+function iniciarSorteo() {
+  sorteando = setInterval(() => {
+    resultado.textContent = `El ganador es: ${obtenerGanador()}`;
+  }, timeIntervalo);
+
+  setTimeout(() => {
+    clearInterval(sorteando);
+    resultado.style.color = "rgb(255, 11, 31)";
+    resultado.textContent = `El ganador es: ${obtenerGanador()}`;
+    document.getElementById("sortear").removeAttribute("disabled");
+    document.getElementById("borrar").removeAttribute("disabled");
+    document.getElementById("añadir").removeAttribute("disabled");
+  }, timeSorteo);
+}
+
+function borrarListado() {
+  if (listaAmigos.length === 0) {
+    alert("No hay amigos ingresados");
+  } else {
+    if (confirm("¿Seguro que desea borrar el listado?")) {
+      listaFront.innerHTML = "";
+      listaAmigos = [];
+      resultado.innerHTML = "";
+    }
+  }
 }
