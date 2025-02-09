@@ -75,6 +75,7 @@ function iniciarSorteo() {
     clearInterval(sorteando);
     resultado.style.color = "rgb(255, 11, 31)";
     resultado.textContent = `El ganador es: ${obtenerGanador()}`;
+    lanzarPapelitos();
     document.getElementById("sortear").removeAttribute("disabled");
     document.getElementById("borrar").removeAttribute("disabled");
     document.getElementById("añadir").removeAttribute("disabled");
@@ -90,5 +91,32 @@ function borrarListado() {
       listaAmigos = [];
       resultado.innerHTML = "";
     }
+  }
+}
+
+/* funciones para generar lanzamiento de papelitos*/
+function lanzarPapelitos() {
+  const container = document.getElementById("papelitosContainer");
+  const cantidadPapelitos = 350; // Número de papelitos a lanzar
+  const coloresPapelitos = ["red", "blue", "green", "yellow", "purple", "orange", "pink"];
+  let min = 10;
+  let max = 80;
+  for (let i = 0; i < cantidadPapelitos; i++) {
+      const papelito = document.createElement("div");
+      papelito.classList.add("papelito");
+      
+      const colorAleatorio = coloresPapelitos[Math.floor(Math.random() * coloresPapelitos.length)];
+      papelito.style.backgroundColor = colorAleatorio; //añade colores distintos a cada papelito
+      // Posición aleatoria en el ancho de la pantalla (entre 0 y 100, disminuir el intervalo para juntarlos)
+      //Ejemplo math.random() * 60 + 20 estaran entre 20 y 60 % de ancho (vw) o alto (vw)
+      papelito.style.left = Math.random() * max + min + "vw"; 
+      papelito.style.top = Math.random() * max + min + "vh"; // Posición inicial aleatoria
+
+      container.appendChild(papelito);
+
+      // Eliminar el papelito después de que caiga
+      papelito.addEventListener("animationend", () => {
+          papelito.remove();
+      });
   }
 }
